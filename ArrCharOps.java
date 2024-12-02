@@ -133,10 +133,12 @@ public class ArrCharOps {
     public static char[] subArray(char[] arr, int beginIndex, int endIndex) {
         int j = 0;
         char[] new_arr = new char[endIndex - beginIndex + 1];
-        for (int i = beginIndex; i < arr.length; i++) {
-            
-            new_arr[j] = arr[i];
-            j++;
+        if(beginIndex < arr.length && endIndex <arr.length && beginIndex > 0){
+            for (int i = beginIndex; i < arr.length; i++) {
+                
+                new_arr[j] = arr[i];
+                j++;
+            }
         }
         return new_arr;
     }
