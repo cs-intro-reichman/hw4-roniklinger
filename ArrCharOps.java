@@ -24,7 +24,7 @@ public class ArrCharOps {
         System.out.println(compareTo("abcd", "abcd"));//0
         System.out.println(compareTo("abc", "abcd"));//-1
         System.out.println(compareTo("abw", "abcd"));//-1
-        System.out.println(compareTo("Abcd", "a"));//1
+        System.out.println(compareTo("Abcd", ""));//1
         System.out.println(compareTo("apple", "banana"));
         System.out.println(compareTo("apple", "applepie"));//-1
         System.out.println(compareTo("Zoo", "zoo"));
@@ -193,17 +193,17 @@ public class ArrCharOps {
         if (str1 == null || str2 == null) {
             return -2; 
         }
-
+        int count_small = 0;
+        int count_big = 0;
         if(str1.length() == str2.length()){
             for(int i=0;i<str1.length();i++){
                 char ch1 = str1.charAt(i);
                 char ch2 = str2.charAt(i);
-
                 if(ch1 < ch2){
-                    return -1; 
+                    count_small++; 
                 }
                 else if(ch1 > ch2){
-                    return 1; 
+                    count_big++; 
                 }
             }
         }
@@ -214,10 +214,15 @@ public class ArrCharOps {
         else if (str1.length() > str2.length()){
             return 1;
         }
+        else if(count_small < count_big){
+            return -1;
+        }
+        else if(count_small > count_big){
+            return 1;
+        }
         else{
             return 0;
         }
-
     }
 }
 
