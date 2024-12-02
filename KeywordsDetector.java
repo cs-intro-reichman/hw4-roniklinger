@@ -42,6 +42,7 @@ public class KeywordsDetector {
 
 
     public static boolean equal(String str, String[] keywords) {
+        str = str.toLowerCase();
         for(int i=0;i<keywords.length;i++){
             String str2 = keywords[i];
             int count = 0;
