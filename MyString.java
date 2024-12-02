@@ -14,6 +14,11 @@ public class MyString {
         System.out.println(contains("personality", "son")); // true
         System.out.println(contains("personality", "dad")); // false
         System.out.println(contains("resignation", "sign")); // true
+        System.out.println(contains("baba yaga", "baba"));
+        System.out.println(contains("baba yaga", ""));
+        System.out.println(contains("baba yaga", "John Wick is the baba yaga"));
+        System.out.println(contains("baba yaga", "Yaga"));
+        System.out.println(contains("baba yaga", "babayaga"));
     }
 
     /** Returns the lowercase version of the given string. */
@@ -25,6 +30,11 @@ public class MyString {
     /** If str1 contains str2, returns true; otherwise returns false. */
     public static boolean contains(String str1, String str2) {
         int i = 0;
+        if(str1.length() == 0 || str2.length() == 0){
+            return false;
+        }
+        str1 = lowerCase(str1);
+        str2 = lowerCase(str2);
         while (i < str1.length()){
             if(str1.charAt(i) == str2.charAt(0)){
                 int count=1;
