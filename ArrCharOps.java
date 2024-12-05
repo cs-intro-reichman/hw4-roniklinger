@@ -2,6 +2,7 @@
  *  The library also features a string comparison method. */
 public class ArrCharOps {
     public static void main(String[] args) {
+        
         String str = "clearly";
         char[] arr1 = {'c','l','e','a','r','l','y'};
         char[] arr2 = {'U','n','d','e','r','s','t', 'o', 'o', 'd'};
@@ -9,15 +10,15 @@ public class ArrCharOps {
         char[] arr4 = {'1','2','3','a','b','c'};
         System.out.println(str);  // Prints the string
         println(arr1);            // Prints an array of characters
-        System.out.println(charAt(arr1,2));      
+       System.out.println(charAt(arr1,2));      
         System.out.println(indexOf(arr1,'l'));  
         System.out.println(indexOf(arr1,'l',3)); 
-        /*System.out.println(equals(arr1,arr2));
+        System.out.println(equals(arr1,arr2));
         System.out.println(equals(arr3,arr4));
         System.out.println(indexOf(arr3,'a'));
         System.out.println(indexOf(arr3,'s'));
         System.out.println(indexOf(arr3,'1', 2));
-        System.out.println(indexOf(arr3,'a', 2));*/
+        System.out.println(indexOf(arr3,'a', 2));
         System.out.println(lastIndexOf(arr1, 'l'));
         System.out.println(concat(arr3, arr4));
         System.out.println(subArray(arr2, 2, 9));
@@ -131,16 +132,20 @@ public class ArrCharOps {
      *  characters containing the characters "urge".
      */     
     public static char[] subArray(char[] arr, int beginIndex, int endIndex) {
+        if (beginIndex < 0 || endIndex > arr.length || beginIndex > endIndex) {
+            throw new IllegalArgumentException("Invalid indices");
+        }
         int j = 0;
         char[] new_arr = new char[endIndex - beginIndex];
-        if(beginIndex < arr.length && endIndex <arr.length && beginIndex >= 0){
-            for (int i = beginIndex; i < endIndex; i++) {
-                new_arr[j] = arr[i];
-                j++;
-            }
+        
+        for (int i = beginIndex; i < endIndex; i++) {
+            new_arr[j] = arr[i];
+            j++;
         }
+        
         return new_arr;
     }
+
 
      /** Returns a single integer that represents the given array. This integer is sometimes 
      *  referred to as the array's "hash code". Later in the course we'll explain what these 
@@ -194,37 +199,29 @@ public class ArrCharOps {
         if (str1 == null || str2 == null) {
             return -2; 
         }
-        int count_small = 0;
-        int count_big = 0;
-        if(str1.length() == str2.length()){
-            for(int i=0;i<str1.length();i++){
-                char ch1 = str1.charAt(i);
-                char ch2 = str2.charAt(i);
-                if(ch1 < ch2){
-                    count_small++; 
-                }
-                else if(ch1 > ch2){
-                    count_big++; 
-                }
+        if (str1.isEmpty()) {
+            return -2; 
+        }
+        if (str2.isEmpty()) {
+            return -2;   
+        }
+        int minLength = Math.min(str1.length(), str2.length());
+        for(int i=0;i<minLength;i++){
+            char ch1 = str1.charAt(i);
+            char ch2 = str2.charAt(i);
+            if(ch1 < ch2){
+                return -1;
+            }
+            else if(ch1 > ch2){
+                return 1;
             }
         }
-
-        if(str1.length() < str2.length()){
+        if(str1.length() < str2.length() ){
             return -1;
         }
         else if (str1.length() > str2.length()){
             return 1;
         }
-        else if(count_small < count_big){
-            return -1;
-        }
-        else if(count_small > count_big){
-            return 1;
-        }
-        else{
-            return 0;
-        }
+        return 0;
     }
 }
-
-
