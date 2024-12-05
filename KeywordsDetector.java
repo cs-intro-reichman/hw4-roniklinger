@@ -18,7 +18,6 @@ public class KeywordsDetector {
         // Some keywords that typically signal bullshit contents in business presentations 
         String[] keywords = {"synergy", "disrupt", "leverage", "Paradigm", "transform"};
         detectAndPrint(sentences, keywords);
-        //System.out.println(equal("leveragee", keywords) );
     }
     
 

@@ -10,7 +10,7 @@ public class ArrCharOps {
         char[] arr4 = {'1','2','3','a','b','c'};
         System.out.println(str);  // Prints the string
         println(arr1);            // Prints an array of characters
-       System.out.println(charAt(arr1,2));      
+        System.out.println(charAt(arr1,2));      
         System.out.println(indexOf(arr1,'l'));  
         System.out.println(indexOf(arr1,'l',3)); 
         System.out.println(equals(arr1,arr2));
@@ -33,8 +33,7 @@ public class ArrCharOps {
         System.out.println(hashCode(arr2));
     }
 
-    /** Prints the given array of characters, and moves the cursor to the next line.
-     */
+    /** Prints the given array of characters, and moves the cursor to the next line.*/
     public static void println(char[] arr) {
         for (int i = 0; i < arr.length; i++) {
             System.out.print(arr[i]);
@@ -42,16 +41,14 @@ public class ArrCharOps {
         System.out.println();
     }
 
-    /** Returns the char value at the specified index. Assume that the array is non-empty.
-     */
+    /** Returns the char value at the specified index. Assume that the array is non-empty. */
     public static char charAt(char[] arr, int index) {
         
         return arr[index];
     }
 
     /** If the two arrays have the same value in every index, 
-     *  returns true; Otherwise returns false.
-     */
+     *  returns true; Otherwise returns false. */
     public static boolean equals(char[] arr1, char[] arr2) {
         boolean b = false;
         int count = 0; 
@@ -70,8 +67,7 @@ public class ArrCharOps {
     }
 
     /** Returns the index within the given array of the first occurrence of the given character.
-     *  If no such character is found, returns -1.
-     */
+     *  If no such character is found, returns -1.*/
     public static int indexOf(char[] arr, char ch) {
         for (int i = 0; i < arr.length; i++) {
             if(arr[i] == ch){
@@ -81,8 +77,7 @@ public class ArrCharOps {
         return -1;
     }
 
-    /** Same as indexOf(char[], char), but starts the search in the given index.
-     */
+    /** Same as indexOf(char[], char), but starts the search in the given index. */
     public static int indexOf(char[] arr, char ch, int fromIndex) {
         int new_length = arr.length -fromIndex;
         for (int i = fromIndex; i < new_length; i++) {
@@ -94,8 +89,7 @@ public class ArrCharOps {
     }
 
     /** Returns the index within the given arr of the last occurrence of the given character.
-     *  If no such character is found, returns -1.
-     */
+     *  If no such character is found, returns -1.*/
     public static int lastIndexOf(char[] arr, char ch) {
         int count = 0;
         int last_ch = 0; 
@@ -111,8 +105,7 @@ public class ArrCharOps {
         return -1;
     }
 
-    /* Returns an array which is the concatanation of the two given arrays.
-    */
+    /* Returns an array which is the concatanation of the two given arrays.*/
     public static char[] concat(char[] arr1, char[] arr2) {
         char[] new_arr = new char[arr1.length + arr2.length];
         for (int i = 0; i < arr1.length; i++) {

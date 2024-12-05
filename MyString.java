@@ -33,8 +33,6 @@ public class MyString {
         if(str2.length() == 0 && str1.length() != 0 ){
             return true;
         }
-        //str1 = lowerCase(str1);
-        //str2 = lowerCase(str2);
         while (i < str1.length()){
             if(str1.charAt(i) == str2.charAt(0)){
                 int count=1;
